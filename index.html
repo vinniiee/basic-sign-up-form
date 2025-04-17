@@ -1,36 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> 
+  <head>
     <title>Signup Form</title>
-    <link rel="icon" type="image" href="favicon.ico"/>
-    <link rel="stylesheet" href="./styles.css"/>
-    <meta name="description" content="Signup Page to Create a new account">
+    <link rel="icon" type="image" href="favicon.ico" />
+    <link rel="stylesheet" href="./styles.css" />
+    <meta name="description" content="Signup Page to Create a new account" />
   </head>
   <body>
+    <div id="error">Passwords do not match.</div>
     <header></header>
     <main>
       <h1>Signup</h1>
-      <form action="" method="post" class="signup-form">
-        <input type="text" placeholder="Full Name" required/>
-        <input type="email" placeholder="Email" required/>
-        <input type="password" placeholder="Password" required/>
-        <input type="text" placeholder="Confirm Password" required/>
-        <input type="date" placeholder="dd-mm-yyyy" required/>
+      <form action="" method="post" class="signup-form" id="signup-form">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required id="password" />
+        <input type="text" placeholder="Confirm Password" required id="confirm"/>
+        <input type="date" placeholder="dd-mm-yyyy" required />
         <div class="radio-input">
-          <input type="radio" name="role" id="student" value="student" required/>
+          <input
+            type="radio"
+            name="role"
+            id="student"
+            value="student"
+            required
+          />
           <label for="student">Student</label>
-          <input type="radio" name="role" id="employee" value="employee" required/>
+          <input
+            type="radio"
+            name="role"
+            id="employee"
+            value="employee"
+            required
+          />
           <label for="employee">Employee</label>
         </div>
         <div class="checkbox-input">
-          <input type="checkbox" id="t&c"/>
+          <input type="checkbox" id="t&c" />
           <label>I agree to all the Terms and conditions</label>
         </div>
         <button>Signup</button>
       </form>
     </main>
-    <footer>
+    <footer></footer>
 
-    </footer>
+    <script>
+      const form = document.getElementById("signup-form");
+      const password = document.getElementById("password");
+      const confirm = document.getElementById("confirm");
+      const error = document.getElementById("error");
+
+      form.addEventListener("submit", function (e) {
+        if (password.value !== confirm.value) {
+          e.preventDefault();
+          // error.style.display = "block";
+          error.classList.add("show");
+        } else {
+          // error.style.display = "none";
+          error.classList.remove("show");
+        }
+      });
+    </script>
   </body>
 </html>

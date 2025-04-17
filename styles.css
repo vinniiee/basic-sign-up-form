@@ -1,5 +1,5 @@
 html{
-    box-sizing: border;
+    box-sizing: border-box;
     background-color: black;
     color: white;
     margin: 2rem;
@@ -37,7 +37,7 @@ h1{
     line-height: 0.5;
 }
 
-p1{
+p{
     font-size:32px;
 }
 
@@ -98,4 +98,26 @@ input[type="radio"] + label{
 
     margin-left : -1.5rem;
 
+}
+
+
+#error{
+    /* display: none; */
+    position: absolute;
+    opacity:0;
+    top: 5rem;
+    /* right:5rem; */
+    font-size: 24px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 2rem;
+    translate: 0px -10px;
+    transition: .5s all ease-out;
+}
+
+#error.show {
+    /* display: block; */
+    translate: 0 0;
+    opacity: 1;
 }
